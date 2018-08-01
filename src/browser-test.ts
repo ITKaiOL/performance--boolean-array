@@ -3,7 +3,7 @@
 /** A wrapper of the imported classes */
 namespace testerDOM {
     
-  export const runTest = (TesterClasses: BooleanArrayClass[], size: number, access: number, repetition: number): TestResult[] => {
+  export const runTest = (TesterClasses: BooleanArrayClass[], size: number, access: number, repetition: number): number[] => {
     let t = new Tester(TesterClasses, { arraySize: size, access: access, repetition: repetition }, performance);
     let result = t.runTest();
     return result;
