@@ -47,28 +47,28 @@ Therefore testing is done twice in a row in each execution, and the second resul
 
 All timing measured in milliseconds.
 
-| Small / Light        | Small / Medium | Small / Heavy | Medium / Light | Medium / Medium | Medium / Heavy | Large / Light | Large / Medium | Large / Heavy |
-|----------------------|:--------------:|:-------------:|:--------------:|:---------------:|:--------------:|:-------------:|:--------------:|:-------------:|
-| **NodeJS**           |                |               |                |                 |                |               |                |               |
-| boolean              |       0.2      |      1.0      |       3.6      |       0.9       |       3.6      |      13.8     |       4.0      |      15.8     |
-| boolean pre-filled   |       0.2      |      0.8      |       3.4      |       0.8       |       3.2      |      13.3     |       3.4      |      13.9     |
-| bitvector            |       0.3      |      0.9      |       3.8      |       1.0       |       3.7      |      14.9     |       3.9      |      15.1     |
-| bitvector pre-filled |       0.2      |      0.9      |       3.6      |       0.9       |       3.5      |      14.7     |       3.7      |      14.6     |
-| **Chrome**           |                |               |                |                 |                |               |                |               |
-| boolean              |       0.3      |      0.9      |       3.8      |       1.1       |       4.0      |      14.9     |      15.0      |      55.1     |
-| boolean pre-filled   |       0.2      |      0.9      |       3.8      |       0.9       |       3.8      |      15.6     |       8.6      |      55.6     |
-| bitvector            |       0.4      |      1.0      |       4.0      |       1.0       |       4.2      |      16.2     |       9.5      |      54.8     |
-| bitvector pre-filled |       0.1      |      1.1      |       4.0      |       1.0       |       4.3      |      16.1     |      14.3      |      49.2     |
-| **Firefox**          |                |               |                |                 |                |               |                |               |
-| boolean              |       7.3      |      10.5     |      25.5      |       13.0      |      28.5      |      78.5     |      45.5      |     124.5     |
-| boolean pre-filled   |       1.8      |      4.8      |      17.0      |       4.0       |      17.5      |      74.0     |      18.0      |      73.8     |
-| bitvector            |       0.8      |      1.0      |       2.5      |       1.0       |       3.5      |      10.3     |       3.3      |      9.0      |
-| bitvector pre-filled |       0.0      |      0.3      |       2.5      |       0.3       |       2.3      |      10.5     |       2.3      |      9.5      |
-| **Edge**             |                |               |                |                 |                |               |                |               |
-| boolean              |       0.5      |      1.6      |       4.9      |       2.1       |       6.5      |      19.7     |       8.9      |      31.3     |
-| boolean pre-filled   |       0.2      |      1.0      |       4.2      |       1.0       |       4.2      |      17.2     |       4.3      |      21.0     |
-| bitvector            |       0.3      |      1.0      |       3.9      |       0.9       |       3.7      |      14.3     |       3.9      |      14.5     |
-| bitvector pre-filled |       0.2      |      0.9      |       3.8      |       0.9       |       3.5      |      14.1     |       3.7      |      14.5     |
+|                      | Small / Light | Small / Medium | Small / Heavy | Medium / Light | Medium / Medium | Medium / Heavy | Large / Light | Large / Medium | Large / Heavy |
+|----------------------|:-------------:|:--------------:|:-------------:|:--------------:|:---------------:|:--------------:|:-------------:|:--------------:|:-------------:|
+| **NodeJS**           |               |                |               |                |                 |                |               |                |               |
+| boolean              |      0.2      |       1.0      |      3.6      |       0.9      |       3.6       |      13.8      |      4.0      |      15.8      |      58.8     |
+| boolean pre-filled   |      0.2      |       0.8      |      3.4      |       0.8      |       3.2       |      13.3      |      3.4      |      13.9      |      55.9     |
+| bitvector            |      0.3      |       0.9      |      3.8      |       1.0      |       3.7       |      14.9      |      3.9      |      15.1      |      59.4     |
+| bitvector pre-filled |      0.2      |       0.9      |      3.6      |       0.9      |       3.5       |      14.7      |      3.7      |      14.6      |      58.2     |
+| **Chrome**           |               |                |               |                |                 |                |               |                |               |
+| boolean              |      0.3      |       0.9      |      3.8      |       1.1      |       4.0       |      14.9      |      15.0     |      55.1      |      73.2     |
+| boolean pre-filled   |      0.2      |       0.9      |      3.8      |       0.9      |       3.8       |      15.6      |      8.6      |      55.6      |      69.7     |
+| bitvector            |      0.4      |       1.0      |      4.0      |       1.0      |       4.2       |      16.2      |      9.5      |      54.8      |      66.6     |
+| bitvector pre-filled |      0.1      |       1.1      |      4.0      |       1.0      |       4.3       |      16.1      |      14.3     |      49.2      |      64.4     |
+| **Firefox**          |               |                |               |                |                 |                |               |                |               |
+| boolean              |      7.3      |      10.5      |      25.5     |      13.0      |       28.5      |      78.5      |      45.5     |      124.5     |     333.3     |
+| boolean pre-filled   |      1.8      |       4.8      |      17.0     |       4.0      |       17.5      |      74.0      |      18.0     |      73.8      |     280.8     |
+| bitvector            |      0.8      |       1.0      |      2.5      |       1.0      |       3.5       |      10.3      |      3.3      |       9.0      |      47.0     |
+| bitvector pre-filled |      0.0      |       0.3      |      2.5      |       0.3      |       2.3       |      10.5      |      2.3      |       9.5      |      44.5     |
+| **Edge**             |               |                |               |                |                 |                |               |                |               |
+| boolean              |      0.5      |       1.6      |      4.9      |       2.1      |       6.5       |      19.7      |      8.9      |      31.3      |      89.6     |
+| boolean pre-filled   |      0.2      |       1.0      |      4.2      |       1.0      |       4.2       |      17.2      |      4.3      |      21.0      |      79.6     |
+| bitvector            |      0.3      |       1.0      |      3.9      |       0.9      |       3.7       |      14.3      |      3.9      |      14.5      |      57.6     |
+| bitvector pre-filled |      0.2      |       0.9      |      3.8      |       0.9      |       3.5       |      14.1      |      3.7      |      14.5      |      58.7     |
 
 # Observation
 Note that due to security threats Spectre, the precision of `performance.now()` is currently reduced. The smaller the measurement the more inaccurate the result. Despite that, a few observations can be made from the test:
