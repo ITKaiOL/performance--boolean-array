@@ -1,0 +1,108 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+  <title>Performance Test: Boolean Array in JavaScript</title>
+  <style>
+    html, body {
+      padding: 0;
+      margin: 0;
+    }
+    #container {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      align-items: center;
+    }
+    #container div {
+      border: 1px solid black;
+      padding: 1em;
+      flex: 1 1 30%;
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: center;
+      align-items: center;
+      
+    }
+    table {
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid black;
+    }
+    #running {
+      position: fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgb(0, 0, 0, 0.25);
+      font-weight: bold;
+      font-size: 4em;
+      width: 100%;
+      height: 100%;
+    }
+    h1 {
+      text-align: center;
+      margin: 0;
+      padding: 1em;
+    }
+  </style>
+  <script>
+    var exports = {};
+  </script>
+  <!-- script src="dist/booleanList.js"></script>
+  <script src="dist/bitVector.js"></script>
+  <script src="dist/tester.js"></script -->
+  <script src="dist/browser-test.js"></script>
+  <script>
+    (function() {
+      var sizes = [4096, 16384, 65536];
+      var accesses = [1, 4, 16];
+      var repetition = 12;
+    
+      var worker = new Worker('perf-boolarr-worker.js');
+      
+      var a = -1;
+      var s = 0;
+      var run = 0;
+      
+      function runNext() {
+        a++;
+        if(a >= accesses.length) {
+          a = 0;
+          s++;
+        }
+        if(s < sizes.length) {
+          worker.postMessage({ access: accesses[a], size: sizes[s], repetition: repetition });
+        } else {
+          if(run === 0) {
+            // second run
+            run++;
+            a = -1;
+            s = 0;
+            runNext();
+          } else {
+            document.getElementById('running').style.display = "none";
+          }
+        }
+      }
+      worker.onmessage = function (event) {
+        if(run === 1) {
+          // only capture result of second run
+          testerDOM.updateView(sizes[s], accesses[a], repetition, event.data);
+        }
+        runNext();
+      };
+      
+      runNext();
+    }());
+  </script>
+</head>
+<body>
+  <div id="running">Test running...</div>
+  <h1>Performance Test: Boolean Array in JavaScript</h1>
+  <div id="container"></div>
+</body>
+</html>
